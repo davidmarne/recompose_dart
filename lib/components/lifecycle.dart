@@ -11,6 +11,7 @@ typedef void ComponentWillUnmount<P>(P props);
 typedef P GetDefaultProps<P>();
 
 /// [lifecycle] will call the react lifecycle functions provided.
+///
 /// Example
 ///
 ///   class LifeCycleProps {
@@ -26,7 +27,6 @@ typedef P GetDefaultProps<P>();
 ///   )
 ///
 ///   FunctionalComponent<MappedExampleProps> lifeCycleLogger(LifeCycleProps props) => Dom.div()();
-///
 lifecycle<P>({
   ComponentWillMount<P> componentWillMount,
   ComponentDidMount<P> componentDidMount,

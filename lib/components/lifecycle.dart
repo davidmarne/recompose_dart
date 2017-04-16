@@ -11,6 +11,22 @@ typedef void ComponentWillUnmount<P>(P props);
 typedef P GetDefaultProps<P>();
 
 /// [lifecycle] will call the react lifecycle functions provided.
+/// Example
+///
+///   class LifeCycleProps {
+///     String onMountMessage;
+///     String onUpdateMessage;
+///   }
+///
+///   // The props will be transformed from ExampleProps to MappedExampleProps and the
+///   // component will be wrapped with a pure should component update.
+///   FunctionalComponent<ExampleProps> lifeCycleLogger = lifecycle<LifeCycleProps>(
+///     componentWillMount: (props) => print(props.onMountMessage),
+///     componentDidUpdate: (prevProps, props) => print(props.onUpdateMessage),
+///   )
+///
+///   FunctionalComponent<MappedExampleProps> lifeCycleLogger(LifeCycleProps props) => Dom.div()();
+///
 lifecycle<P>({
   ComponentWillMount<P> componentWillMount,
   ComponentDidMount<P> componentDidMount,
@@ -32,20 +48,3 @@ lifecycle<P>({
       ..getDefaultProps = getDefaultProps
       ..baseProps = props
       ..baseComponent = baseComponent)();
-
-/// Example
-///
-///   class LifeCycleProps {
-///     String onMountMessage;
-///     String onUpdateMessage;
-///   }
-///
-///   // The props will be transformed from ExampleProps to MappedExampleProps and the
-///   // component will be wrapped with a pure should component update.
-///   FunctionalComponent<ExampleProps> lifeCycleLogger = lifecycle<LifeCycleProps>(
-///     componentWillMount: (props) => print(props.onMountMessage),
-///     componentDidUpdate: (prevProps, props) => print(props.onUpdateMessage),
-///   )
-///
-///   FunctionalComponent<MappedExampleProps> lifeCycleLogger(LifeCycleProps props) => Dom.div()();
-///

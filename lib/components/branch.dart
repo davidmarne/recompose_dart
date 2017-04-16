@@ -5,10 +5,6 @@ import '../typedefs/typedefs.dart';
 typedef bool BranchTest<P>(P props);
 
 /// [branch] returns the [left] or [right] [FunctionalComponent] depending on the outcome of [test]
-FunctionalComponent<P> branch<P>(
-        BranchTest<P> test, FunctionalComponent<P> left, FunctionalComponent<P> right) =>
-    (P props) => test(props) ? left(props) : right(props);
-
 /// Example
 ///   class ExampleProps {
 ///     bool leftOrRight;
@@ -26,3 +22,6 @@ FunctionalComponent<P> branch<P>(
 ///     rightBranchConent,
 ///   )
 ///
+FunctionalComponent<P> branch<P>(
+        BranchTest<P> test, FunctionalComponent<P> left, FunctionalComponent<P> right) =>
+    (P props) => test(props) ? left(props) : right(props);

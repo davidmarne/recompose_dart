@@ -1,3 +1,5 @@
+[![Pub](https://img.shields.io/pub/v/recompose_dart.svg)](https://pub.dartlang.org/packages/recompose_dart)
+
 ### recompose_dart
 
 recompose_dart is a collection of utilities for writing functional react components

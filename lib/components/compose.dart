@@ -4,6 +4,7 @@ import '../typedefs/typedefs.dart';
 /// on the baseComponent in order.
 ///
 /// Example
+///  ```dart
 ///   class ExampleProps {
 ///     String name;
 ///   }
@@ -20,6 +21,7 @@ import '../typedefs/typedefs.dart';
 ///   ])(message);
 ///
 ///   FunctionalComponent<MappedExampleProps> message(MappedExampleProps, props) => Dom.h1()(props.message);
+///   ```
 ComponentEnhancer<InnerP, OutterP> compose<InnerP, OutterP>(
         Iterable<ComponentEnhancer<dynamic, dynamic>> factories) =>
     factories.reduce(

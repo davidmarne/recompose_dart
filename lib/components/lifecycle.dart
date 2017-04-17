@@ -13,7 +13,7 @@ typedef P GetDefaultProps<P>();
 /// [lifecycle] will call the react lifecycle functions provided.
 ///
 /// Example
-///
+///  ```dart
 ///   class LifeCycleProps {
 ///     String onMountMessage;
 ///     String onUpdateMessage;
@@ -27,6 +27,7 @@ typedef P GetDefaultProps<P>();
 ///   )
 ///
 ///   FunctionalComponent<MappedExampleProps> lifeCycleLogger(LifeCycleProps props) => Dom.div()();
+///   ```
 lifecycle<P>({
   ComponentWillMount<P> componentWillMount,
   ComponentDidMount<P> componentDidMount,

@@ -3,6 +3,7 @@ import '../typedefs/typedefs.dart';
 /// [mapProps] will transform the props with the [mapper] funtion provider before invokeing [baseComponent]
 ///
 /// Example
+///  ```dart
 ///   class ExampleProps {
 ///     String name;
 ///   }
@@ -18,5 +19,6 @@ import '../typedefs/typedefs.dart';
 ///   )(message);
 ///
 ///   FunctionalComponent<MappedExampleProps> message(MappedExampleProps props) => Dom.h1()(props.message);
+///   ```
 ComponentEnhancer<InnerP, OutterP> withProps<InnerP, OutterP>(PropMapper<InnerP, OutterP> mapper) =>
     (FunctionalComponent<OutterP> baseComponent) => (InnerP props) => baseComponent(mapper(props));

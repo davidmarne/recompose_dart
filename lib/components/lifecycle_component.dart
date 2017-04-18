@@ -25,7 +25,6 @@ class LifeCycleComponent<P> extends UiComponent<LifeCycleProps<P>> {
 
   @override
   void componentWillMount() {
-    print(baseProps);
     super.componentWillMount();
     if (props.componentWillMount != null) props.componentWillMount(baseProps);
   }
@@ -37,25 +36,32 @@ class LifeCycleComponent<P> extends UiComponent<LifeCycleProps<P>> {
   }
 
   @override
-  void componentWillReceiveProps(LifeCycleProps<P> newProps) {
-    super.componentWillReceiveProps(newProps);
-    if (props.componentWillReceiveProps != null) props.componentWillReceiveProps(baseProps, newProps.baseProps);
+  void componentWillReceiveProps(Map nextPropsMap) {
+    var nextProps = typedPropsFactory(nextPropsMap);
+    super.componentWillReceiveProps(nextProps);
+    if (props.componentWillReceiveProps != null)
+      props.componentWillReceiveProps(baseProps, nextProps.baseProps);
   }
 
   @override
-  bool shouldComponentUpdate(LifeCycleProps<P> nextProps, _) {
-    if (props.componentWillReceiveProps != null) return props.shouldComponentUpdate(baseProps, nextProps.baseProps);
+  bool shouldComponentUpdate(Map nextPropsMap, _) {
+    var nextProps = typedPropsFactory(nextPropsMap);
+    if (props.shouldComponentUpdate != null)
+      return props.shouldComponentUpdate(baseProps, nextProps.baseProps);
     return true;
   }
 
   @override
-  void componentWillUpdate(LifeCycleProps<P> nextProps, _) {
+  void componentWillUpdate(Map nextPropsMap, _) {
+    var nextProps = typedPropsFactory(nextPropsMap);
     super.componentWillUpdate(nextProps, _);
-    if (props.componentWillUpdate != null) props.componentWillUpdate(baseProps, nextProps.baseProps);
+    if (props.componentWillUpdate != null)
+      props.componentWillUpdate(baseProps, nextProps.baseProps);
   }
 
   @override
-  void componentDidUpdate(LifeCycleProps<P> prevProps, _) {
+  void componentDidUpdate(Map prevPropsMap, _) {
+    var prevProps = typedPropsFactory(prevPropsMap);
     super.componentDidUpdate(prevProps, _);
     if (props.componentDidUpdate != null) props.componentDidUpdate(prevProps.baseProps, baseProps);
   }

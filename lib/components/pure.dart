@@ -4,7 +4,7 @@ import './lifecycle.dart';
 import '../typedefs/typedefs.dart';
 
 ComponentEnhancer<P, P> pure<P>(FunctionalComponent<P> baseComponent) => lifecycle<P>(
-      shouldComponentUpdate: (currentProps, nextProps) => shallowEquals<P>(currentProps, nextProps),
+      shouldComponentUpdate: (currentProps, nextProps) => (currentProps != nextProps),
     )(baseComponent);
 
 bool shallowEquals<T>(T o1, T o2) {

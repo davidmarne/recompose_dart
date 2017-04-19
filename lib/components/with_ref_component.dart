@@ -19,9 +19,10 @@ class WithRefComponent<P extends RefProp> extends UiComponent<WithRefProps<P>> {
   @override
   componentDidMount() {
     super.componentWillMount();
-    props.baseProps.ref = this.ref;
     redraw();
   }
 
-  render() => props.baseComponent(baseProps);
+  buildProps() => props.baseProps..ref = this.ref;
+
+  render() => props.baseComponent(buildProps());
 }

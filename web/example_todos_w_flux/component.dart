@@ -14,5 +14,4 @@ FunctionalComponent<TodoFluxProps> todosBuilder = compose<TodoFluxProps, TodoPro
     ..todos = fluxProps.store.todos
     ..title = 'flux'),
   withState<TodoProps>({'creating': false}),
-  pure,
 ])(todosComponent);

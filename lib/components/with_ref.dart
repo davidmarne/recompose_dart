@@ -7,8 +7,8 @@ class RefProp<E extends Element> {
 }
 
 /// [withRef] with pass a ref to the dom element to [baseComponent]
-ComponentEnhancer<P, P> withRef<E extends Element, P extends RefProp<E>>(
-        Map<String, dynamic> defaultState) =>
-    (FunctionalComponent<P> baseComponent) => (P props) => (WithRef()
+FunctionalComponent<P> withRef<E extends Element, P extends RefProp<E>>(
+        FunctionalComponent<P> baseComponent) =>
+    (P props) => (WithRef()
       ..baseProps = props
       ..baseComponent = baseComponent)();

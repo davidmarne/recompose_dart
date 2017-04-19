@@ -24,11 +24,11 @@ typedef P GetDefaultProps<P>();
 ///   FunctionalComponent<ExampleProps> lifeCycleLogger = lifecycle<LifeCycleProps>(
 ///     componentWillMount: (props) => print(props.onMountMessage),
 ///     componentDidUpdate: (prevProps, props) => print(props.onUpdateMessage),
-///   )
+///   )(lifeCycleLoggerBase)
 ///
-///   FunctionalComponent<MappedExampleProps> lifeCycleLogger(LifeCycleProps props) => Dom.div()();
+///   FunctionalComponent<MappedExampleProps> lifeCycleLoggerBase(LifeCycleProps props) => Dom.div()();
 ///   ```
-lifecycle<P>({
+ComponentEnhancer<P, P> lifecycle<P>({
   ComponentWillMount<P> componentWillMount,
   ComponentDidMount<P> componentDidMount,
   ComponentWillReceiveProps<P> componentWillReceiveProps,

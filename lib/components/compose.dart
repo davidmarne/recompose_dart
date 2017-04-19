@@ -15,7 +15,7 @@ import '../typedefs/typedefs.dart';
 ///
 ///   // The props will be transformed from ExampleProps to MappedExampleProps and the
 ///   // component will be wrapped with a pure should component update.
-///   FunctionalComponent<ExampleProps> composedMessage<ExampleProps, MappedExampleProps> = compose([
+///   FunctionalComponent<ExampleProps> composedMessage = compose([
 ///     withProps<ExampleProps, MappedExampleProps>((ExampleProps props) => new MappedExampleProps()..message='Hello $name');
 ///     pure,
 ///   ])(message);

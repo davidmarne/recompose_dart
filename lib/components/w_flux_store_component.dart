@@ -12,12 +12,13 @@ UiFactory<FluxStoreProps> FluxStore;
 @Props()
 class FluxStoreProps<P, S extends Store, A> extends UiProps {
   FluxProps<S, A> fluxProps;
-  PropMapper<FluxProps, P> mapper;
+  PropMapper<FluxProps<S, A>, P> mapper;
   FunctionalComponent<P> baseComponent;
 }
 
 @Component()
-class FluxStoreComponent<P, S extends Store, A> extends UiComponent<FluxStoreProps<P, S, A>> with BatchedRedraws {
+class FluxStoreComponent<P, S extends Store, A> extends UiComponent<FluxStoreProps<P, S, A>>
+    with BatchedRedraws {
   /// List of store subscriptions created when the component mounts.
   ///
   /// These subscriptions are canceled when the component is unmounted.

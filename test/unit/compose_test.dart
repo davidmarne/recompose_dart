@@ -41,9 +41,9 @@ var midToEnd = withProps<TestMiddleProps, TestEndProps>(
   (TestMiddleProps p) => new TestEndProps()..end = p.middle + 2,
 );
 
-var composed = compose([
+var composed = compose<TestProps, TestEndProps>([
   startToMid,
   midToEnd,
 ])(comp);
 
-comp(TestEndProps props) => (Dom.div()..className = '${props.end}')();
+ReactElement comp(TestEndProps props) => (Dom.div()..className = '${props.end}')();

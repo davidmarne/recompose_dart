@@ -41,5 +41,5 @@ class TestProps {
 }
 
 var brancher = branch((TestProps p) => p.leftOrRight, left, right);
-left(TestProps props) => (Dom.div()..className = 'a')();
-right(TestProps props) => (Dom.div()..className = 'b')();
+ReactElement left(TestProps props) => (Dom.div()..className = 'a')();
+ReactElement right(TestProps props) => (Dom.div()..className = 'b')();

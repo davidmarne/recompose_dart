@@ -6,7 +6,7 @@ authors:
 - David Marne <davemarne@gmail.com>
 homepage: https://github.com/davidmarne/recompose_dart
 dependencies:
-  built_redux: "^0.0.1"
+  built_redux: "^0.1.0"
   over_react: "^1.6.0"
   w_flux: "^2.6.0"
 

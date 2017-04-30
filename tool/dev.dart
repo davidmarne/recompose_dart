@@ -5,11 +5,10 @@ import 'package:dart_dev/dart_dev.dart' show dev, config;
 main(List<String> args) async {
   const directories = const <String>[
     'lib/',
-    'test/',
   ];
 
   config.analyze
-    ..strong = true
+    ..strong = false
     ..entryPoints = directories;
 
   config.test

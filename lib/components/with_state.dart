@@ -9,7 +9,7 @@ class StateMgr {
 }
 
 /// withState will pass your component a [state] object and [setState] function
-ComponentEnhancer<P, P> withState<P extends StateMgr>(Map<String, dynamic> defaultState) =>
+ComponentEnhancer<P, P> withState<P extends StateMgr>(Map<dynamic, dynamic> defaultState) =>
     (FunctionalComponent<P> baseComponent) => (P props) => (WithState()
       ..defaultState = defaultState
       ..baseProps = props

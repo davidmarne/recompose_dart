@@ -8,7 +8,7 @@ UiFactory<WithStateProps> WithState;
 
 @Props()
 class WithStateProps<P extends StateMgr> extends UiProps {
-  Map<String, dynamic> defaultState;
+  Map<dynamic, dynamic> defaultState;
   P baseProps;
   FunctionalComponent<P> baseComponent;
 }
@@ -21,8 +21,8 @@ class WithStateComponent<P extends StateMgr> extends UiComponent<WithStateProps<
   getInitialState() => props.defaultState;
 
   mixInState() => props.baseProps
-    ..state = this.state
-    ..setState = this.setState;
+    ..state = state
+    ..setState = setState;
 
   render() => props.baseComponent(mixInState());
 }

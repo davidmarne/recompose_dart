@@ -8,6 +8,8 @@ main(List<String> args) async {
     'test/',
   ];
 
+  config.format..lineLength = 100;
+
   config.analyze
     ..strong = false
     ..entryPoints = directories;

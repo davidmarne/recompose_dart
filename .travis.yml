@@ -1,5 +1,5 @@
 language: dart
- dart_task:
+dart_task:
   - test: --platform vm
   - test: --platform firefox
   - test: --platform dartium

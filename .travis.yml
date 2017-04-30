@@ -1,5 +1,9 @@
 language: dart
-with_content_shell: true
+ dart_task:
+  - test: --platform vm
+  - test: --platform firefox
+  - test: --platform dartium
+    install_dartium: true
 dart:
   - 1.22.1
 script:

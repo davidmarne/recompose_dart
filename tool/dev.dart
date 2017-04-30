@@ -5,6 +5,7 @@ import 'package:dart_dev/dart_dev.dart' show dev, config, TestRunnerConfig, Envi
 main(List<String> args) async {
   const directories = const <String>[
     'lib/',
+    'test/',
   ];
 
   config.analyze

@@ -1,4 +1,7 @@
+import 'dart:html';
+
 import 'package:over_react/over_react.dart';
+import 'package:react/react_dom.dart';
 
 import './with_ref.dart';
 import '../typedefs/typedefs.dart';
@@ -7,13 +10,14 @@ import '../typedefs/typedefs.dart';
 UiFactory<WithRefProps> WithRef;
 
 @Props()
-class WithRefProps<P extends RefProp> extends UiProps {
+class WithRefProps<E extends Element, P extends RefProp<E>> extends UiProps {
   P baseProps;
   FunctionalComponent<P> baseComponent;
 }
 
 @Component()
-class WithRefComponent<P extends RefProp> extends UiComponent<WithRefProps<P>> {
+class WithRefComponent<E extends Element, P extends RefProp<E>>
+    extends UiComponent<WithRefProps<E, P>> {
   P get baseProps => props.baseProps;
 
   @override
@@ -22,7 +26,7 @@ class WithRefComponent<P extends RefProp> extends UiComponent<WithRefProps<P>> {
     redraw();
   }
 
-  buildProps() => props.baseProps..ref = this.ref;
+  buildProps() => props.baseProps..ref = findDOMNode(this).children.first;
 
   render() => props.baseComponent(buildProps());
 }

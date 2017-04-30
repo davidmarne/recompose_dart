@@ -1,16 +1,11 @@
-@TestOn('browser')
-library branch_test;
+library compose_test;
 
 import 'package:test/test.dart';
 import 'package:recompose_dart/recompose_dart.dart';
 import 'package:over_react/over_react.dart';
-import 'package:react/react_client.dart' as react_client;
 import 'package:react/react_test_utils.dart' as react_test_utils;
 
 main() {
-  react_client.setClientConfiguration();
-  enableTestMode();
-
   test('runs both mappers ', () {
     var component = react_test_utils.renderIntoDocument(
       composed(new TestProps()..start = 1),
@@ -41,9 +36,9 @@ var midToEnd = withProps<TestMiddleProps, TestEndProps>(
   (TestMiddleProps p) => new TestEndProps()..end = p.middle + 2,
 );
 
-var composed = compose([
+var composed = compose<TestProps, TestEndProps>([
   startToMid,
   midToEnd,
 ])(comp);
 
-comp(TestEndProps props) => (Dom.div()..className = '${props.end}')();
+ReactElement comp(TestEndProps props) => (Dom.div()..className = '${props.end}')();

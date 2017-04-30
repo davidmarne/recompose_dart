@@ -1,14 +1,13 @@
 name: recompose_dart
-version: 0.0.8
+version: 0.0.9
 description:
    A collection of utilities for writing functional react components in dart
 authors:
 - David Marne <davemarne@gmail.com>
 homepage: https://github.com/davidmarne/recompose_dart
+
 dependencies:
-  built_redux: "^0.0.1"
   over_react: "^1.6.0"
-  w_flux: "^2.6.0"
 
 dev_dependencies:
   built_value: "^1.0.0"
